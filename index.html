@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Metadata and links omitted for brevity -->
+  <style>
+    .title-centered {
+      text-align: center;
+    }
+    .image-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; /* Increased width for larger image */
+}
+    .image-bigger {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 750%; /* Increased width for larger image */
+}
+.image-half-width {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%; /* Set width to 50% */
+}
+    .image-smaller {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%; /* Set width to 50% */
+}
+.content-centered {
+  text-align: justify; /* Aligns text like the abstract */
+  font-size: 1rem; /* Matches the abstract font size */
+}
+
+.section {
+  background-color: #f5f5f5; /* Consistent background like the abstract */
+}
+    .subtitle {
+      margin-top: 20px; /* Adds space between image and text */
+      font-size: 1rem; /* Matches the abstract font size */
+    }
+    .light-section {
+      background-color: #f5f5f5; /* Light gray background */
+    }
+    .dark-section {
+      background-color: #ffffff; /* White background */
+    }
+  </style>
+</head>
+<body>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Knowledge Navigator: LLM-guided Browsing Framework for Exploratory Search in Scientific Literature">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D-MERIT Dataset</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/counting_images/dice-svgrepo-com.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Knowledge Navigator:<br> LLM-guided Browsing Framework for Exploratory Search in Scientific Literature</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://katzurik.github.io/">Uri Katz</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=zVTaH-YAAAAJ&hl=en">Mosh Levy</a><sup>1</sup></span>,
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=0rskDKgAAAAJ&hl=en">Yoav Goldberg</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Bar-Ilan University,</span>
+            <span class="author-block"><sup>2</sup>Allen Institute for AI</span>
+
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2408.15836"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://knowledge-navigator.streamlit.app/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                       <i class="fa fa-cog fa-spin fa-fw"></i>
+                  </span>
+                  <span>Demo App</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Summary</h2>
+        <div class="content has-text-justified">
+          <p>
+                The exponential growth of scientific literature necessitates advanced tools for effective knowledge exploration. We present Knowledge Navigator, a system designed to enhance exploratory search abilities by organizing and structuring the retrieved documents from broad topical queries into a navigable, two-level hierarchy of named and descriptive scientific topics and subtopics. This structured organization provides an overall view of the research themes in a domain, while also enabling iterative search and deeper knowledge discovery within specific subtopics by allowing users to refine their focus and retrieve additional relevant documents. Knowledge Navigator combines LLM capabilities with cluster-based methods to enable this novel browsing method. We demonstrate our approach's effectiveness through automatic and manual evaluations on two novel benchmarks, clusTREC-COVID and SCITOC. Our code, prompts, and benchmarks are made publicly available.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
+<!-- <section class="architecture">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 title-centered">Dataset Overview</h2>
+        <div class="hero-body">
+          <div class="columns">
+            <div class="column is-half">
+              <table style="margin: auto; border-collapse: collapse; width: 100%;">
+                <thead>
+                  <tr>
+                    <th style="border-bottom: 1px solid #000; padding: 8px;"># Members</th>
+                    <th style="border-bottom: 1px solid #000; padding: 8px;">Avg # Evidence</th>
+                    <th style="border-bottom: 1px solid #000; padding: 8px;"># Queries</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">1-10</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">25.5</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">558</td>
+                  </tr>
+                  <tr>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">11-20</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">32.0</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">282</td>
+                  </tr>
+                  <tr>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">21-50</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">69.8</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">236</td>
+                  </tr>
+                  <tr>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">51-100</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">109.7</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">77</td>
+                  </tr>
+                  <tr>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">100+</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">281.2</td>
+                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">43</td>
+                  </tr>
+                </tbody>
+                <caption style="caption-side: bottom; padding: 8px; font-weight: bold;">Dataset distribution (average number of evidence, number of queries) divided into buckets by number of set members.</caption>
+              </table>
+
+
+
+            </div>
+            <div class="column is-half">
+              <img src="./static/counting_images/remasker (1)-1.png" alt="Dataset Overview" class="image-half-width">
+              <p class="content-centered">
+                D-MERIT comprises 1,196 queries, encompassing 60,333 evidence in total. On average, there are 50.44 evidence 23.71 members per query. In the paper, we estimate our collection and identification coverage to be 94.5% and 84.7% respectively.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!--<section class="architecture">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-full">-->
+<!--        <h2 class="title is-3 title-centered">Dataset Overview</h2>-->
+<!--        <div class="hero-body">-->
+<!--          <div class="columns is-centered">-->
+<!--            <div class="column is-half">-->
+<!--              <p class="content-centered" style="margin-top: 16px;">-->
+<!--                D-MERIT comprises <strong> 1,196 queries</strong>, encompassing <strong>60,333 evidence</strong> in total. On average, there are <strong>50.44 evidence and 23.71 members per query</strong>. In the paper, we estimate our collection and identification coverage to be 94.5% and 84.7% respectively.-->
+<!--              </p>-->
+<!--              <table style="margin: auto; border-collapse: collapse; width: 100%;">-->
+<!--                <thead>-->
+<!--                  <tr>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px;"># Members</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px;">Avg # Evidence</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px;"># Queries</th>-->
+<!--                  </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">1-10</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">25.5</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">558</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">11-20</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">32.0</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">282</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">21-50</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">69.8</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">236</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">51-100</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">109.7</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">77</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">100+</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">281.2</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px;">43</td>-->
+<!--                  </tr>-->
+<!--                </tbody>-->
+<!--                <caption style="caption-side: bottom; padding: 8px; font-weight: bold;">Dataset distribution: average number of evidence over number of queries divided into buckets by number of set members.</caption>-->
+<!--              </table>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+
+<!--<section class="architecture">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-3 title-centered">Evidence Retrieval Task</h2>-->
+<!--        <div class="hero-body">-->
+<!--          <img src="./static/d-merit_images/task_figure.png" alt="Evidence Retrieval Task" class="image-half-width">-->
+<!--            <p class="content-centered">-->
+<!--            We choose evidence retrieval as our task as it naturally complements our need to collect queries with numerous relevant passages. Passages are considered relevant if they contain text that can be seen as evidence that some answer satisfies the query. Highlighted text corresponds to the query requirements: names (green), “First World War” (red), and “camouflage” (orange). A passage must match all requirements to be considered as evidence.</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<!--<section class="dataset-examples">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-3 title-centered">Examples from D-MERIT</h2>-->
+<!--        <div class="hero-body">-->
+<!--          <div class="columns">-->
+<!--            <div class="column">-->
+<!--              <table style="margin: auto; border-collapse: collapse; width: 100%;">-->
+<!--                <thead>-->
+<!--                  <tr>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px;">Query</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px;">Member</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px;">Candidate</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px;">Evidence</th>-->
+<!--                  </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">names of Indian Marathi romance films</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">Sairat</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">Jeur</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Jeur is a village in the Karmala taluka of Solapur district in Maharashtra state, India. <strong>Sairat</strong>, the controversial and highest-grossing <strong>Marathi film</strong> of all time based on the theme of <strong>forbidden love</strong> was set and shot in Jeur village.</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">names of National Wildlife Refuges in West Virginia</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">Ohio River Islands National Wildlife Refuge</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">Mill Creek Island</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Mill Creek Island is a bar island on the Ohio River in Tyler County, <strong>West Virginia</strong>. The island lies upstream from Grandview Island and the towns of New Matamoras, Ohio and Friendly, West Virginia. It takes its name from Mill Creek, which empties into the Ohio River from the Ohio side in its vicinity. <strong>Mill Creek Island is protected as part of the Ohio River Islands National Wildlife Refuge</strong>.</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Names of players on 1992 US Olympic ice hockey team</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">Dave Tretowicz</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">Dave Tretowicz</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;"><strong>Dave Tretowicz</strong> (born March 15, 1969) is an <strong>American former professional ice hockey player</strong>. In 1988, he was drafted in the NHL by the Calgary Flames. <strong>He competed in the men's tournament at the 1992 Winter Olympics</strong>.</td>-->
+<!--                  </tr>-->
+<!--                </tbody>-->
+<!--                <caption style="caption-side: bottom; padding: 8px; font-weight: bold;">Examples of records in our dataset. <strong>Query</strong> is the generated natural-language query describing a group. <strong>Member</strong> is an entity that belongs to the group described by the query. <strong>Candidate</strong> is the Wikipedia article from which the evidence is taken from. <strong>Evidence</strong> is a passage indicating the member's association with the group.</caption>-->
+<!--              </table>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; -->
+<!--<section class="architecture">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-3 title-centered">D-MERIT as a Benchmark</h2>-->
+<!--        <div class="hero-body">-->
+<!--          <img src="./static/d-merit_images/d_merit_benchmark_results.png" alt="D-MERIT as a Benchmark" class="image" style="width:100%;">-->
+<!--            <p class="content-centered">-->
+<!--            Performance of a variety of baselines on D-MERIT. Recall, NDCG, and MAP are evaluated over four k values: 5, 20, 50, and 100. The k value in R-precision is the total number of evidence of a query, which changes from query to query.</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!-- &ndash;&gt;-->
+
+<!--<section class="performance-table">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-full">-->
+<!--        <h2 class="title is-3 title-centered">D-MERIT as a Benchmark</h2>-->
+<!--        <div class="hero-body">-->
+<!--          <div class="columns">-->
+<!--            <div class="column">-->
+<!--              <table style="margin: auto; border-collapse: collapse; width: 100%; font-size: 0.85em;">-->
+<!--                <thead>-->
+<!--                  <tr>-->
+<!--                    <th rowspan="2" style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">System</th>-->
+<!--                    <th colspan="4" style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">Recall@k</th>-->
+<!--                    <th colspan="4" style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">NDCG@k</th>-->
+<!--                    <th colspan="4" style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">MAP@k</th>-->
+<!--                    <th rowspan="2" style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">R-precision</th>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">5</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">20</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">50</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">100</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">5</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">20</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">50</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">100</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">5</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">20</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">50</th>-->
+<!--                    <th style="border-bottom: 1px solid #000; padding: 8px; text-align: center;">100</th>-->
+<!--                  </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">SPLADE++</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>9.43</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>24.11</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>36.02</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>45.16</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>38.17</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>36.54</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>38.05</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>40.56</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>7.11</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>15.0</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>19.35</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>21.72</strong></td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>28.16</strong></td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">SPLADEv2</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">7.82</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">21.21</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">33.29</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">43.34</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">32.09</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">31.43</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">33.78</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">37.00</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">5.74</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">12.20</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">16.03</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">18.27</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">24.82</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">TCT-Colbert-Hybrid</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">7.85</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">19.62</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">29.71</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">37.97</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">34.86</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">31.60</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">32.23</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">34.33</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">5.80</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">11.48</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">14.78</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">16.56</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">22.75</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">bm25</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">6.65</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">17.46</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">27.54</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">35.76</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">28.93</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">27.20</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">28.62</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">31.13</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">4.76</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">9.76</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">12.83</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">14.61</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">20.86</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">RetroMAE-Hybrid</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">7.30</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">17.48</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">25.95</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">32.85</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">33.95</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">29.21</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">29.19</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">30.82</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">5.71</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">10.63</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">13.14</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">14.48</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">20.12</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">RetroMAE</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">7.03</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">16.62</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">24.78</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">31.61</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">32.71</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">27.98</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">27.94</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">29.61</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">5.47</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">10.05</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">12.38</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">13.66</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">19.29</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">TCT-Colbert</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">6.27</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">15.44</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">23.59</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">30.95</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">29.31</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">25.73</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">26.08</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">27.95</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">4.58</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">8.64</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">11.02</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">12.39</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">18.02</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">CoCondenser-Hybrid</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">5.28</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">14.81</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">24.25</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">32.88</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">22.13</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">21.87</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">23.96</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">26.89</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">3.41</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">6.82</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">9.10</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">10.63</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">16.78</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">QLD</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">5.49</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">13.96</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">23.56</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">31.96</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">24.54</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">21.71</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">23.63</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">26.55</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">3.77</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">7.07</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">9.51</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">11.13</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">16.56</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">CoCondenser</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">4.87</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">13.75</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">23.02</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">31.52</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">20.71</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">20.42</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">22.64</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">25.54</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">3.14</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">6.20</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">8.35</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">9.77</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">15.69</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Unicoil</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">4.47</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">10.95</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">17.27</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">23.28</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">20.86</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">17.96</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">18.70</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">20.49</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">3.25</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">6.05</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">7.72</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">8.83</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">13.19</td>-->
+<!--                  </tr>-->
+<!--                  <tr>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">DPR</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">3.90</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">9.62</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">15.99</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">21.72</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">18.51</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">15.90</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">16.64</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">18.41</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">2.63</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">4.48</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">5.67</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">6.37</td>-->
+<!--                    <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">10.89</td>-->
+<!--                  </tr>-->
+<!--                </tbody>-->
+<!--                <caption style="caption-side: bottom; padding: 8px; font-weight: bold;">Performance of a variety of baselines on D-MERIT. Recall, NDCG, and MAP are evaluated over four $k$ values: 5, 20, 50, and 100. The $k$ value in R-precision is the total number of evidence of a query, which changes from query to query.</caption>-->
+<!--              </table>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<!--<section class="architecture">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-3 title-centered">Findings of Partial-annotation Study</h2>-->
+<!--        &lt;!&ndash; <p>TLDR;</p> &ndash;&gt;-->
+<!--        <div class="hero-body">-->
+<!--          <div class="content-centered">-->
+<!--            <h3 class="title is-4">Is the single-relevant setup reliable?</h3>-->
+<!--            <p>-->
+<!--              We assume a single annotation setup, and find that sampling random evidence <em>does</em> lead to reliable results, but such approach is not feasible in scale. To depict a realistic scenario, we also explore 4 other sampling approaches: popular, shortest, longest passage, and system-based (think TREC). For these, the error rate is much higher, which significantly affects the ranking of the models, and illustrates that in such cases, the single-relevant setting is unreliable. -->
+<!--            </p>-->
+<!--            <table style="margin: auto; border-collapse: collapse; width: 100%;">-->
+<!--              <thead>-->
+<!--                <tr>-->
+<!--                  <th style="border-bottom: 1px solid #000; padding: 8px;">Selection</th>-->
+<!--                  <th style="border-bottom: 1px solid #000; padding: 8px;">Tau-similarity</th>-->
+<!--                  <th style="border-bottom: 1px solid #000; padding: 8px;">Error-rate (%)</th>-->
+<!--                </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--                <tr>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Random</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>0.936</strong></td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;"><strong>3.20</strong></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Most popular</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">0.696</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">15.10</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Longest</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">0.545</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">22.75</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">Shortest</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">0.696</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">15.10</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: left;">System-based</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">0.616</td>-->
+<!--                  <td style="border-bottom: 1px solid #ccc; padding: 8px; text-align: center;">19.20</td>-->
+<!--                </tr>-->
+<!--              </tbody>-->
+<!--              <caption style="caption-side: bottom; padding: 8px; font-weight: bold;">Kendall-Tau similarities and error-rate for the different sampling approaches in a single-annotation setup.</caption>-->
+<!--            </table>-->
+<!--          -->
+<!--            <h3 class="title is-4">Do rankings stabilize as false negatives decrease?</h3>-->
+<!--            <p>-->
+<!--              We evaluate 12 systems by increasing annotations in increments of 10%, and find that if the difference in performance between a pair of systems is large, around 20% of the annotations we collected suffice to obtain the correct ranking of systems. However, if the systems are close in performance, almost all annotations are needed.-->
+<!--            </p>-->
+<!--            <figure>-->
+<!--              <img src="./static/d-merit_images/fig3.png" alt="Partial Kendall-Tau evidence" class="image-half-width">-->
+<!--              <figcaption>Partial-Kendall-τ between rankings of systems with k percent annotations and ranking with all evidence, using recall@20. System pairs are divided into 3 buckets as described in Section 3.3.</figcaption>-->
+<!--            </figure>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+
+  
+
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+             Website source code based on the <a
+              href="https://nerfies.github.io/">Nerfies</a> project page. If you want to reuse their <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> , please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
