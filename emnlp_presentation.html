@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Presentation - Themes and Subtopics</title>
+    <style>
+        /* Main Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px;
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header {
+            padding: 20px 0;
+            background-color: #1f1f1f;
+        }
+
+        .logo {
+            max-width: 80px;  /* Set a smaller max-width */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .main-title {
+            font-size: 1.5em;
+            margin: 10px 0 5px;
+            color: #BB86FC;
+        }
+
+        .description {
+            font-size: 0.9em;
+            color: #B3B3B3;
+            margin-bottom: 20px;
+        }
+
+        .theme {
+            padding: 15px 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #BB86FC;
+            cursor: pointer;
+            position: relative;
+            border-bottom: 1px solid #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme:hover {
+            background-color: #333;
+        }
+
+        .theme::after {
+            content: '\25BC';
+            font-size: 0.8em;
+            position: absolute;
+            right: 20px;
+            transition: transform 0.3s;
+        }
+
+        .theme.expanded::after {
+            transform: rotate(180deg);
+        }
+
+        .subtopics {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background-color: #252525;
+            padding: 0 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .subtopics li {
+            padding: 10px 0;
+            list-style: none;
+            color: #B3B3B3;
+            border-bottom: 1px solid #333;
+            font-size: 1em;
+        }
+
+        /* Smooth transitions */
+        .subtopics.open {
+            max-height: 300px; /* Adjust based on content length */
+            padding: 10px 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+            .theme {
+                font-size: 1em;
+            }
+            .subtopics li {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="theme-container">
+        <!-- Header section as part of the container -->
+        <div class="header">
+            <img src="emnlp-2024-logo.png" alt="EMNLP Logo" class="logo">
+            <h1 class="main-title">EMNLP 2024 Themes and Subtopics</h1>
+            <p class="description">Explore the main themes and their subtopics presented at EMNLP 2024. Tap on a theme to expand and see detailed subtopics.</p>
+        </div>
+
+        <!-- Theme list will be dynamically loaded here -->
+        Loading themes...
+    </div>
+
+    <script>
+        // Function to load JSON data and display themes and subtopics
+        async function loadThemes() {
+            try {
+                const response = await fetch('emnlp_themes.json');  // Fetch the JSON file
+                const themesData = await response.json();
+
+                const container = document.getElementById('theme-container');
+                container.innerHTML = '';  // Clear loading message
+
+                // Re-add header content after clearing container
+                container.innerHTML = `
+                    <div class="header">
+                        <img src="emnlp-2024-logo.png" alt="EMNLP Logo" class="logo">
+                        <h1 class="main-title">EMNLP 2024 Themes and Subtopics</h1>
+                        <p class="description">Explore the main themes and their subtopics presented at EMNLP 2024. Tap on a theme to expand and see detailed subtopics.</p>
+                    </div>
+                `;
+
+                // Create HTML elements for each theme and its subtopics
+                Object.keys(themesData).forEach(theme => {
+                    const themeEl = document.createElement('div');
+                    themeEl.classList.add('theme');
+                    themeEl.textContent = theme;
+
+                    const subtopicsEl = document.createElement('ul');
+                    subtopicsEl.classList.add('subtopics');
+                    themesData[theme].forEach(subtopic => {
+                        const subtopicEl = document.createElement('li');
+                        subtopicEl.textContent = subtopic;
+                        subtopicsEl.appendChild(subtopicEl);
+                    });
+
+                    // Add click event to toggle subtopics visibility
+                    themeEl.addEventListener('click', () => {
+                        themeEl.classList.toggle('expanded');
+                        subtopicsEl.classList.toggle('open');
+                    });
+
+                    container.appendChild(themeEl);
+                    container.appendChild(subtopicsEl);
+                });
+            } catch (error) {
+                console.error("Error loading themes:", error);
+                document.getElementById('theme-container').textContent = "Failed to load themes.";
+            }
+        }
+
+        // Call the function to load themes when the page loads
+        loadThemes();
+    </script>
+
+</body>
+</html>

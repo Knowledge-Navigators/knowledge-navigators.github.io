@@ -1,0 +1,98 @@
+{
+    "Speech and Language Translation Technologies": [
+        "Innovations in Speech and Language Translation Technologies"
+    ],
+    "Large Language Models: Analysis and Optimization": [
+        "Analysis and Optimization of Large Language Models",
+        "Enhancing Reasoning in Large Language Models",
+        "Enhancements and Optimization of In-Context Learning in Large Language Models",
+        "Efficient Fine-Tuning and Adaptation Techniques for Large Language Models",
+        "Enhancement and Evaluation of Code Generation with LLMs",
+        "Prompt-based Techniques in NLP",
+        "Optimization Techniques for Efficient LLM Performance",
+        "Enhancement of LLMs in Agent-Based Systems for Complex Task Performance",
+        "Alignment and Optimization Techniques for Large Language Models",
+        "Zero-Shot Learning and Argumentation Analysis using Large Language Models",
+        "Enhancements in Large Language Models for NLP Tasks",
+        "Knowledge Editing in Large Language Models",
+        "Instruction-Based Fine-Tuning of Large Language Models",
+        "Continual and Incremental Learning in Large Language Models",
+        "Advanced Recommendation Systems Using Large Language Models and Reinforcement Learning",
+        "Optimization and Deployment Techniques for Mixture-of-Experts in Large Language Models",
+        "Enhancements and Collaboration in Large Language Models",
+        "Advancements in Large Language Models",
+        "Extending Context Windows and Long-Sequence Processing in Transformer Models",
+        "Memory and Memorization in Large Language Models",
+        "Integration and Grounding of Contextual Information in Large Language Models"
+    ],
+    "Multilingual and Cross-Lingual NLP": [
+        "Multilingual Speech and Machine Translation Technologies",
+        "Multilingual and Cross-Lingual NLP Techniques",
+        "Multilingual Language Models and Datasets for Under-represented Languages"
+    ],
+    "Multimodal Language Models": [
+        "Advancing Multimodal Language Models",
+        "Multimodal Agent and Model Development",
+        "Innovations in Multimodal Learning and Vision-Language Models"
+    ],
+    "Evaluation and Benchmarking": [
+        "Benchmarking and Evaluation of Large Language Models",
+        "Detection and Robustness of Machine-Generated Texts",
+        "Mitigating Hallucinations in Large Language Models",
+        "Enhancing Reliability and Attribution in Language Model Outputs",
+        "Evaluation Methods for Large Language Models",
+        "Evaluation Methodologies for Large Language Models and Machine Translation Systems",
+        "Benchmarks for Evaluating Advanced Reasoning Capabilities in LLMs",
+        "Evaluation and Benchmarking of Large Language Models",
+        "Advancements and Evaluation Methods in NLP for Academic Documents",
+        "Advancements in Data Annotation and Quality Evaluation for NLP",
+        "Robust Learning in Noisy Data Environments",
+        "Software Quality and Reproducibility in NLP and LLM Evaluations",
+        "Evaluation Benchmarks and Challenges in Language Models"
+    ],
+    "Security, Bias, and Fairness": [
+        "Biases and Fairness in Large Language Models",
+        "Security Vulnerabilities and Mitigation Strategies in Large Language Models",
+        "Confidence and Uncertainty Estimation in Large Language Models",
+        "Watermarking Techniques for Large Language Models",
+        "Fact-Checking and Misinformation Detection",
+        "Security and Safety in Large Language Models",
+        "Bias Mitigation and Model Alignment in Large Language Models"
+    ],
+    "Natural Language Understanding and Controlled Text Generation": [
+        "Enhancements and Applications of Transformer Language Models in Syntactic and Semantic Analysis",
+        "Advanced NLP Techniques and LLM Applications",
+        "Innovative Methodologies for Enhancing Natural Language Understanding Tasks",
+        "Metaphor Detection and Understanding Using Large Language Models and Multi-modal Techniques",
+        "Semantic Analysis and Change in NLP",
+        "Advancements in Sentence Representation Learning",
+        "Enhancements and Applications of Large Language Models (LLMs)",
+        "Advancements and Applications of Large Language Models (LLMs)",
+        "Advanced Methods for Controlled Text Generation"
+    ],
+    "Dialogue Systems and Empathy": [
+        "LLMs in Empathy and Emotional Support",
+        "Advanced Applications and Evaluation of Language Model-Driven Agents",
+        "Advancements in Task-Oriented Dialogue Systems and LLM Integration",
+        "Evaluation and Utilization of Large Language Models in Dialogue and Emotion Contexts",
+        "Enhancing Theory of Mind Capabilities in Large Language Models"
+    ],
+    "Advanced Methods in Reasoning and Question Answering": [
+        "Enhancements and Methodologies in Open-Domain and Knowledge Base Question Answering",
+        "Enhancing Temporal Reasoning and Understanding in Large Language Models",
+        "Advanced Relation Extraction and Narrative Reasoning in NLP",
+        "Event and Argument Understanding in NLP",
+        "Enhancing LLMs in Mathematical Reasoning and Proof Generation",
+        "Advancements in Reasoning Techniques for Large Language Models",
+        "Advancements in Reasoning Capabilities and Knowledge Integration using LLMs and KGs"
+    ],
+    "Information Retrieval and Retrieval-Augmented Generation": [
+        "Enhancing Performance and Efficiency in Retrieval-Augmented Generation for Large Language Models",
+        "Enhancing Information Retrieval with Large Language Models"
+    ],
+    "NLP Applications in Legal Systems and Specialized Domains": [
+        "Applications of NLP and ML in Legal Systems",
+        "Graph-Based Approaches in Document and Language Model Integration",
+        "AI and NLP Techniques for Ancient and Low-resource Languages"
+    ]
+}
