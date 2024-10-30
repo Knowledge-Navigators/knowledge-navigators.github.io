@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conference Presentation - Themes and Subtopics</title>
+    <!-- ... existing head content ... -->
     <style>
         /* Main Styles */
         body {
@@ -102,17 +100,24 @@
             transition: max-height 0.4s ease, padding 0.3s ease;
             background-color: #252525;
             padding: 0 0px;
-            border-bottom: 1px solid #333;
+            border-bottom: 2px solid #333;
             text-align: left;
         }
 
         .subtopics li {
-            padding: 10px 0;
             list-style: none;
-            color: #B3B3B3;
             border-bottom: 1px solid #333;
-            font-size: 1em;
-            text-align: left;
+        }
+
+        .subtopics li a {
+            color: #B3B3B3;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .subtopics li a:hover {
+            text-decoration: underline;
         }
 
         /* Smooth transitions */
@@ -129,7 +134,7 @@
             .theme {
                 font-size: 1em;
             }
-            .subtopics li {
+            .subtopics li a {
                 font-size: 0.9em;
             }
         }
@@ -184,12 +189,22 @@
                     subtopicsEl.classList.add('subtopics');
                     themesData[theme].forEach(subtopic => {
                         const subtopicEl = document.createElement('li');
-                        subtopicEl.textContent = subtopic;
+
+                        // Create an anchor element
+                        const subtopicLink = document.createElement('a');
+                        subtopicLink.href = `papers.html?subtopic=${encodeURIComponent(subtopic)}`;
+                        subtopicLink.textContent = subtopic;
+
+                        subtopicEl.appendChild(subtopicLink);
                         subtopicsEl.appendChild(subtopicEl);
                     });
 
                     // Add click event to toggle subtopics visibility
-                    themeEl.addEventListener('click', () => {
+                    themeEl.addEventListener('click', (event) => {
+                        // Check if the click was on a link
+                        if (event.target.tagName.toLowerCase() === 'a') {
+                            return; // Do nothing if a link was clicked
+                        }
                         themeEl.classList.toggle('expanded');
                         if (subtopicsEl.classList.contains('open')) {
                             subtopicsEl.style.maxHeight = null;
