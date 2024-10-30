@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMNLP 2024 Papers</title>
+    <style>
+        /* Main Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px;
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header {
+            padding: 20px 0;
+            background-color: #1f1f1f;
+        }
+
+        .logo {
+            max-width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .main-title {
+            font-size: 1.5em;
+            margin: 10px 0 5px;
+            color: #BB86FC;
+        }
+
+        .description {
+            font-size: 0.9em;
+            color: #B3B3B3;
+            margin-bottom: 20px;
+        }
+
+        .papers-list {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .paper-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .paper-title {
+            font-size: 1.2em;
+            color: #BB86FC;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .paper-title:hover {
+            text-decoration: underline;
+        }
+
+        .paper-authors {
+            font-size: 0.9em;
+            color: #B3B3B3;
+            margin: 5px 0;
+        }
+
+        .paper-abstract {
+            font-size: 0.9em;
+            color: #e0e0e0;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .paper-abstract.open {
+            display: block;
+        }
+
+        .paper-link {
+            font-size: 0.9em;
+            color: #BB86FC;
+            text-decoration: none;
+            display: none;
+        }
+
+        .paper-link.open {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .paper-details {
+            font-size: 0.9em;
+            color: #B3B3B3;
+            margin: 5px 0;
+            display: none;
+        }
+
+        .paper-details.open {
+            display: block;
+        }
+
+        .error {
+            padding: 20px;
+            color: #FF6E6E;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+            .paper-title {
+                font-size: 1em;
+            }
+            .paper-authors, .paper-abstract, .paper-details {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="papers-container">
+        <!-- Header section as part of the container -->
+        <div class="header">
+            <img src="emnlp-2024-logo.png" alt="EMNLP Logo" class="logo">
+            <h1 class="main-title">EMNLP 2024 Papers</h1>
+            <p class="description">Papers under the subtopic: <span id="subtopic-name"></span></p>
+        </div>
+
+        <!-- Papers list will be dynamically loaded here -->
+        Loading papers...
+    </div>
+
+    <script>
+        // Function to get subtopic from URL
+        function getSubtopicFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('subtopic');
+        }
+
+        // Function to load papers based on subtopic
+        async function loadPapers() {
+            const subtopic = getSubtopicFromURL();
+
+            document.getElementById('subtopic-name').textContent = subtopic;
+
+            try {
+                const response = await fetch('emnlp_papers.json');  // Fetch the JSON file
+                const papersData = await response.json();
+
+                const container = document.getElementById('papers-container');
+                // Remove the "Loading papers..." text
+                container.innerHTML = '';
+
+                // Re-add header content after clearing container
+                container.innerHTML = `
+                    <div class="header">
+                        <img src="emnlp-2024-logo.png" alt="EMNLP Logo" class="logo">
+                        <h1 class="main-title">EMNLP 2024 Papers</h1>
+                        <p class="description">Papers under the subtopic: <span id="subtopic-name">${subtopic}</span></p>
+                    </div>
+                `;
+
+                // Check if subtopic exists in papersData
+                if (papersData[subtopic]) {
+                    const papers = papersData[subtopic];
+
+                    const papersListEl = document.createElement('div');
+                    papersListEl.classList.add('papers-list');
+
+                    papers.forEach(paper => {
+                        const paperEl = document.createElement('div');
+                        paperEl.classList.add('paper-item');
+
+                        const titleEl = document.createElement('h2');
+                        titleEl.classList.add('paper-title');
+                        titleEl.textContent = paper.title;
+
+                        // Make the title clickable to toggle abstract, link, and details
+                        titleEl.addEventListener('click', () => {
+                            abstractEl.classList.toggle('open');
+                            linkEl.classList.toggle('open');
+                            detailsEl.classList.toggle('open');
+                        });
+
+                        const authorsEl = document.createElement('p');
+                        authorsEl.classList.add('paper-authors');
+                        authorsEl.textContent = 'Authors: ' + paper.authors;
+
+                        // Create a paragraph for additional details
+                        const detailsEl = document.createElement('p');
+                        detailsEl.classList.add('paper-details');
+                        detailsEl.innerHTML = `
+                            <strong>Session:</strong> ${paper.Session}<br>
+                            <strong>Session Time:</strong> ${paper["Session Time"]}<br>
+                            <strong>Type:</strong> ${paper.Type}
+                        `;
+
+                        const abstractEl = document.createElement('p');
+                        abstractEl.classList.add('paper-abstract');
+                        abstractEl.textContent = paper.abstract;
+
+                        const linkEl = document.createElement('a');
+                        linkEl.classList.add('paper-link');
+                        linkEl.href = paper.link;
+                        linkEl.target = '_blank';
+                        linkEl.textContent = 'View Paper';
+
+                        paperEl.appendChild(titleEl);
+                        paperEl.appendChild(authorsEl);
+                        paperEl.appendChild(detailsEl);
+                        paperEl.appendChild(abstractEl);
+                        paperEl.appendChild(linkEl);
+
+                        papersListEl.appendChild(paperEl);
+                    });
+
+                    container.appendChild(papersListEl);
+
+                } else {
+                    container.innerHTML += '<p class="error">No papers found for this subtopic.</p>';
+                }
+
+            } catch (error) {
+                console.error("Error loading papers:", error);
+                document.getElementById('papers-container').textContent = "Failed to load papers.";
+            }
+        }
+
+        // Call the function to load papers when the page loads
+        loadPapers();
+    </script>
+</body>
+</html>
