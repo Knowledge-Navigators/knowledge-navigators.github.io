@@ -622,7 +622,7 @@
             "Type": "Findings"
         }
     ],
-    "Enhancements and Robustness in Retrieval-Augmented Generation (RAG)": [
+    "Advances in Retrieval-Augmented Generation: Enhancing Performance and Robustness": [
         {
             "paperId": "b512451d431df9e411bea4c99f7135d010275445",
             "title": "Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs",
@@ -7206,7 +7206,7 @@
             "Type": "Findings"
         }
     ],
-    "Advancements and Challenges in Vision-Language Models": [
+    "Enhancing Vision-Language Models: Alignment, Generalization, and Multilingual Capabilities": [
         {
             "paperId": "00a3703fd076bddfa1ac14786f66e91ccd043140",
             "title": "ImageInWords: Unlocking Hyper-Detailed Image Descriptions",
@@ -8388,7 +8388,7 @@
             "Type": "Findings"
         }
     ],
-    "Applications and Advancements in Multi-modal Vision-Language Models": [
+    "Domain-Specific Applications of Vision-Language Models": [
         {
             "paperId": "64c8002bd1044d869cc18a4a8738e076bf22f4ea",
             "title": "UniFashion: A Unified Vision-Language Model for Multimodal Fashion Retrieval and Generation",
@@ -11275,7 +11275,7 @@
             "Type": "Findings"
         }
     ],
-    "Advanced Information Retrieval Mechanisms and Enhancements Using Large Language Models": [
+    "Enhancing Domain-Specific Information Retrieval Systems with Large Language Models": [
         {
             "paperId": "9c79e9eee5c0abfecfa0190e01a0bf50e5842d11",
             "title": "ChatRetriever: Adapting Large Language Models for Generalized and Robust Conversational Dense Retrieval",
@@ -13168,7 +13168,7 @@
             "Type": "Findings"
         }
     ],
-    "Multimodal Model Development and Evaluation for Visual Reasoning and Chart Understanding": [
+    "Multimodal Models for Visual Reasoning and Chart Interpretation": [
         {
             "paperId": "415e25e8e3c8c10255abbb704d545f9d02c54c76",
             "title": "GeoGPT4V: Towards Geometric Multi-modal Large Language Models with Geometric Image Generation",
@@ -16761,7 +16761,7 @@
             "Type": "Findings"
         }
     ],
-    "Enhancements and Applications of Vision-Language Models (VLMs)": [
+    "Methodological Advances in Vision-Language Models: Transfer Learning and Bias Mitigation": [
         {
             "paperId": "e287f3c941f4143eff2eb73f279a0c796239e187",
             "title": "Towards Difficulty-Agnostic Efficient Transfer Learning for Vision-Language Models",
@@ -19122,7 +19122,7 @@
             "Type": "Findings"
         }
     ],
-    "Advancements in LLMs for Retrieval, Segmentation, and Keyphrase Generation": [
+    "Optimizing Large Language Models for Retrieval, Segmentation, and Keyphrase Generation Tasks": [
         {
             "paperId": "64c606726616ae4879864d740b59b1e1a50a525b",
             "title": "Large Language Models as Foundations for Next-Gen Dense Retrieval: A Comprehensive Empirical Assessment",

@@ -1,14 +1,14 @@
 {
     "Information Retrieval and RAG": [
-        "Enhancements and Robustness in Retrieval-Augmented Generation (RAG)",
-        "Advanced Information Retrieval Mechanisms and Enhancements Using Large Language Models",
-        "Advancements in LLMs for Retrieval, Segmentation, and Keyphrase Generation"
+        "Advances in Retrieval-Augmented Generation: Enhancing Performance and Robustness",
+        "Enhancing Domain-Specific Information Retrieval Systems with Large Language Models",
+        "Optimizing Large Language Models for Retrieval, Segmentation, and Keyphrase Generation Tasks"
     ],
     "Multimodal Models and Vision-Language Integration": [
-        "Advancements and Challenges in Vision-Language Models",
-        "Applications and Advancements in Multi-modal Vision-Language Models",
-        "Multimodal Model Development and Evaluation for Visual Reasoning and Chart Understanding",
-        "Enhancements and Applications of Vision-Language Models (VLMs)"
+        "Enhancing Vision-Language Models: Alignment, Generalization, and Multilingual Capabilities",
+        "Domain-Specific Applications of Vision-Language Models",
+        "Multimodal Models for Visual Reasoning and Chart Interpretation",
+        "Methodological Advances in Vision-Language Models: Transfer Learning and Bias Mitigation"
     ],
     "Agents, Tool Use, and Planning in LLMs": [
         "Tool-Augmented Large Language Models",
