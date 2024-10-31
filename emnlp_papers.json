@@ -11276,6 +11276,18 @@
         }
     ],
     "Enhancing Domain-Specific Information Retrieval Systems with Large Language Models": [
+         {
+            "paperId": "50e5be9c4d0e89d8d735e5852b9719c20f36e2bd",
+            "title": "Knowledge Navigator: LLM-guided Browsing Framework for Exploratory Search in Scientific Literature",
+            "abstract": "The exponential growth of scientific literature necessitates advanced tools for effective knowledge exploration. We present Knowledge Navigator, a system designed to enhance exploratory search abilities by organizing and structuring the retrieved documents from broad topical queries into a navigable, two-level hierarchy of named and descriptive scientific topics and subtopics. This structured organization provides an overall view of the research themes in a domain, while also enabling iterative search and deeper knowledge discovery within specific subtopics by allowing users to refine their focus and retrieve additional relevant documents. Knowledge Navigator combines LLM capabilities with cluster-based methods to enable an effective browsing method. We demonstrate our approach's effectiveness through automatic and manual evaluations on two novel benchmarks, CLUSTREC-COVID and SCITOC. Our code, prompts, and benchmarks are made publicly available.",
+            "link": "https://www.semanticscholar.org/paper/50e5be9c4d0e89d8d735e5852b9719c20f36e2bd",
+            "authors": "Uri Katz, Mosh Levy, Yoav Goldberg",
+            "EMNLP Paper ID": "1841",
+            "Oral/Poster": "Poster",
+            "Session": "Session 09",
+            "Session Time": "Nov 13 (Wed) 16:00-17:30",
+            "Type": "Findings"
+        },
         {
             "paperId": "9c79e9eee5c0abfecfa0190e01a0bf50e5842d11",
             "title": "ChatRetriever: Adapting Large Language Models for Generalized and Robust Conversational Dense Retrieval",
