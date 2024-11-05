@@ -48,9 +48,16 @@
         }
 
         .description {
-            font-size: 0.9em;
+            font-size: 1.2em;
             color: #B3B3B3;
             margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .subtitle_description {
+            font-size: 1.2em;
+            color: #B3B3B3;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .papers-list {
@@ -140,7 +147,7 @@
         <div class="header">
             <img src="emnlp-2024-logo.png" alt="EMNLP Logo" class="logo">
             <h1 class="main-title">EMNLP 2024 Papers</h1>
-            <p class="description">Papers under the subtopic: <span id="subtopic-name"></span></p>
+            <p class="description"><span id="subtopic-name"></span></p>
         </div>
 
         <!-- Papers list will be dynamically loaded here -->
@@ -173,7 +180,9 @@
                     <div class="header">
                         <img src="emnlp-2024-logo.png" alt="EMNLP Logo" class="logo">
                         <h1 class="main-title">EMNLP 2024 Papers</h1>
-                        <p class="description">Papers under the subtopic: <span id="subtopic-name">${subtopic}</span></p>
+                        <p class="subtitle_description">Papers under the subtopic:</p>
+                        <p class="description"><span id="subtopic-name">${subtopic}</span></p>
+
                     </div>
                 `;
 
